@@ -14,6 +14,6 @@ app.use('/', tasksRoutes)
 app.listen(PORT, () => {
 
     console.log('testing purposes: ' + process.env.PORT)
-    console.log(`Server is running on http://localhost:${PORT} Click CTRL + C to quit `)
+    console.log(`Server is running on http://localhost:${PORT} \nClick CTRL + C to quit `)
 
 })
