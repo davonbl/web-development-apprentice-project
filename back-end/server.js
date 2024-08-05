@@ -1,11 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors"
 import tasksRoutes from "./routes/tasks.js"
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+//cors
+app.use(cors())
 //body-parser
 app.use(express.json())
 
