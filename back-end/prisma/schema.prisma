@@ -15,6 +15,7 @@ datasource db {
 
 model Post {
   id        Int      @id @default(autoincrement())
+  client_id String   @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   task     String   @db.VarChar(255)
