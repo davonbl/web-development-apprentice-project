@@ -5,19 +5,20 @@ import './App.css'
 
 function App() {
   const [list, setList] = useState([])
-  const [text, setText] = useState('')
+  const [task, setTask] = useState('')
 
   return (
     <>
       <div>
         <InputForm
           setList={setList}
-          setText={setText}
-          text={text}
+          setTask={setTask}
+          task={task}
           list={list}
         />
         <ToDoList
           list={list}
+          setList={setList}
         />
       </div>
     </>
