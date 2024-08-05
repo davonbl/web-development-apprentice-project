@@ -56,7 +56,7 @@ export default function InputForm({setList, setTask, task, list}){
 
     return (
         <>
-            <p>'Here is where the input bar will be located'</p>
+            <h2>'What are your plans for today?'</h2>
             <div>
                 <form>
                     <input 
