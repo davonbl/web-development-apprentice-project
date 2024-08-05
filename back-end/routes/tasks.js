@@ -38,15 +38,15 @@ router.get('/', async(req, res) => {
 
 })
 
-router.get('/tasks/:id', async(req, res) => {
+router.get('/tasks/:client_id', async(req, res) => {
 
     try {
-        const getId = req.params.id
+        const getId = req.params.client_id
         console.log('Here is the specific object: ', getId)
-        const convertToNum = parseInt(getId)
+        // const convertToNum = parseInt(getId)
         const getObject = await prisma.post.findFirst({
             where: {
-                id: convertToNum
+                client_id: client_id
             }
         })
         console.log('Here is the object: ', getObject)
@@ -60,12 +60,13 @@ router.get('/tasks/:id', async(req, res) => {
 router.post('/', async (req, res) => {
     try {
 
-        const {id, task} = req.body
+        const {client_id, task} = req.body
         console.log('here is the task data: ', task)
         
         const addTask = await prisma.post.create({
             data: {
-                task: task
+                task: task,
+                client_id: client_id
             }
         }) 
         console.log("Here is the added task: ", addTask)
@@ -81,26 +82,37 @@ router.post('/', async (req, res) => {
 
 })
 
-router.put('/', async(req, res) => {
+router.put('/:client_id', async(req, res) => {
 
       try {
-        const {id, task} = req.body
+        // const {id, task} = req.body
+        const {client_id, task, old_id} = req.body
+        // const {client_id} = req.params
+
+        // console.log('params: ', client_id)
 
         const initalTask = await prisma.post.findFirst({
             where:{
-                id: id
+                client_id: old_id
             }
         })
+        console.log(initalTask)
         //looks like bracket notion works in getting specific data within object
-        console.log("Here is the inital task: ", initalTask['task'])
-    
+        // console.log("Here is the inital task: ", initalTask['task'])
+        const findObject = await prisma.post.findFirst({
+            where: {
+                client_id: old_id
+            }
+        })
+        console.log('here is the object: ', findObject)
+
         const updateTask = await prisma.post.update({
             where: {
-              id: id,
+                id: findObject.id,
             },
             data: {
-              id: id,
               task: task,
+              client_id: client_id
             }
           })
         // const {initalTask, updatedTask} = req.body
@@ -132,12 +144,18 @@ router.put('/', async(req, res) => {
 router.delete('/', async(req, res) => {
 
     try {
-        const {id} = req.body; 
+        const {client_id} = req.body; 
         // const allTasks = await prisma.post.findMany()
         // console.log('here are the tasks: ', allTasks)
+        const findObject = await prisma.post.findFirst({
+            where: {
+                client_id: client_id
+            }
+        })
+        console.log('here is the object: ', findObject)
         const deletePost = await prisma.post.delete({
             where: {
-                id: id
+                id: findObject.id
             }
         })
         // let newID = 1;
@@ -159,7 +177,7 @@ router.delete('/', async(req, res) => {
         //         newID++
         //     }) 
         //     console.log('updated logs: ', allTasks)
-        
+        console.log('text has been deleted')
         res.json({
             success: true,
             text: 'text has been deleted',
