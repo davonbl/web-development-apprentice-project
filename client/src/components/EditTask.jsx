@@ -2,8 +2,8 @@ import { useState, React } from "react";
 import { v4 as uuidv4 } from 'uuid';
 // import editTaskButton from ''
 
-
-export default function EditTask({setList, setTask, task, list,editTask, editTaskButton}){
+// setList, setTask, task, list,
+export default function EditTask({editTask, editTaskButton, original_id, original_text}){
     // inputText = 
     const [value, setValue] = useState(editTask.toDo)
     const submitButton = (event) => {
@@ -11,7 +11,7 @@ export default function EditTask({setList, setTask, task, list,editTask, editTas
         // console.log('clicked')
         // console.log('Here is the text: ', editTask.toDo)
         // editToDo(value, editTask.id)
-        editTaskButton(value, editTask.id)
+        editTaskButton(value, editTask.client_id, original_id, original_text)
 
         // setTask('')
     }
