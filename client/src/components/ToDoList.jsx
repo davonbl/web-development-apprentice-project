@@ -43,11 +43,11 @@ export default function ToDoList({list, setList}){
         console.log('here is the delete button')
         console.log('here is the id of clicked object: ', id)
         console.log('here is the list: ', list)
-        const testValue = list.filter(ele => ele.id !== id)
-        console.log('what is filtered: ', testValue)
-        // setList((currentList) => {
-        //     return currentList.filter(ele => currentList.id !== ele.id)
-        // })
+        // const testValue = list.filter(ele => ele.id !== id)
+        setList((currentList) => {
+            return currentList.filter(ele => ele.id !== id)
+        })
+        console.log('what is filtered: ', list)
     }
 
     const editButton = (event) => {
