@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import useSWR from "swr";
 import axios from "axios"
 import './App.css'
+import WeatherApp from './components/WeatherApp';
 
 const fetcher = async() => {
   try {
@@ -39,22 +40,9 @@ function App() {
           completed: false,
           isEditing: false
       }])   
-      })
-    //   setList(preList => [...preList, {
-    //     id: uuidv4(),
-    //     toDo: ele.task,
-    //     completed: false,
-    //     isEditing: false
-    // }])      
+      })   
     }
 
-    // console.log(testing)
-  //   setList(preList => [...preList, {
-  //     id: uuidv4(),
-  //     toDo: 'repersent the world',
-  //     completed: false,
-  //     isEditing: false
-  // }])
   }, [data])
 
   // hadnling data fetching with useSWR in react
@@ -64,6 +52,7 @@ function App() {
   return (
     <>
       <div>
+        <WeatherApp/>
         <InputForm
           setList={setList}
           setTask={setTask}
