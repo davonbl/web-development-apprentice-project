@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ToDoList from './components/ToDoList'
 import InputForm from './components/InputForm'
 import './App.css'
@@ -6,6 +6,10 @@ import './App.css'
 function App() {
   const [list, setList] = useState([])
   const [task, setTask] = useState('')
+
+  useEffect(() => {
+    console.log('HELLO WORLD')
+  }, [])
 
   return (
     <>
