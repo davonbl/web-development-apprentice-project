@@ -1,5 +1,6 @@
 import {React, useState, useEffect} from 'react';
 import axios from 'axios';
+import '../styles/WeatherApp.css'; 
 
 
 export default function WeatherApp() {
@@ -12,7 +13,7 @@ export default function WeatherApp() {
     // console.log('second part: ',days.slice(0, dayInAWeek) )
     // console.log('forecastDays: ', forecastDays)
     const fiveDayForecast = days.slice(dayInAWeek, days.length - 1)
-    console.log('fiveDayForecast: ', fiveDayForecast)
+    // console.log('fiveDayForecast: ', fiveDayForecast)
     const apiKey = import.meta.env.VITE_WEATHER_KEY
     const lat = 40.71427;
     const lon = 74.00597;
@@ -39,29 +40,34 @@ export default function WeatherApp() {
         } 
         // setForeCastWeather(res())
         // console.log("here is the weather data: ", res.data)
-        console.log('foreCastWesther:', foreCastWeather)
+        // console.log('foreCastWesther:', foreCastWeather)
         getWeatherData()
     }, [])
     // const getValue = weather()
     // setForeCastWeather(getValue)
-    console.log('foreCastWesther:', foreCastWeather)
+    // console.log('foreCastWesther:', foreCastWeather)
 
 
     
     return (
-        <>
-            <p>Five Day Forecast</p>
-            {foreCastWeather && foreCastWeather.splice(0,5).map((ele, idx) => {
-                return(
-                <div key={idx}>
-                    <img alt='weather' src={`http://openweathermap.org/img/wn/${ele.weather[0].icon}.png`}/>
-                    <label>{fiveDayForecast[idx]}</label>
-                    <label>{ele.weather[0].description}</label>
-                    <label>{ele.main.temp}</label>
-                </div>
-                ) 
+        <div >
+            <h1>Five-Day Forecast</h1>
+            <div className='weather'>
+                {foreCastWeather && foreCastWeather.splice(0,5).map((ele, idx) => {
+                    return(
+                    <div key={idx} className='weather__card'>
+                        <p className='weather__day'>{fiveDayForecast[idx]}</p>
+                        <div className='weather__image--container'>
+                            <img className='weather__image' alt='weather' src={`http://openweathermap.org/img/wn/${ele.weather[0].icon}.png`}/>
+                        </div>
+                        <p className='weather__temperature'>{ele.main.temp}°F</p>
+                        <p className='weather__description'>{ele.weather[0].description}</p>
+                        
+                    </div>
+                    ) 
 
-            })}            
-        </>
+                })}
+            </div>            
+        </div>
     );
 }
