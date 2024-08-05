@@ -21,7 +21,7 @@ they want to engage in.
     git clone https://github.com/davonbl/web-development-apprentice-project.git
     ```
 
-2. After entering either the client or server directory, install dependencies in the client and server directories:
+2. After entering either the client or server directory, install the dependencies in the client and server directories:
 
     ```bash
     npm install
@@ -36,13 +36,14 @@ they want to engage in.
     ```bash
     npm run start
     ```
-4. Now you should be able to utilize this application. Cheers!
 
-5. Create a `.env` file in the client root directory. This is where your open weather api key will be placed:
+4. Create a `.env` file in the client root directory. This is where your open weather api key will be placed:
 
     ```
     VITE_API_KEY=TBD
+
      ```
+4. Now you should be able to utilize this application. Cheers!
 ## Documentation
 
 - Prisma : https://prisma.io/docs
