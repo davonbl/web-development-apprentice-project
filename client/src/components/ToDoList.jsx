@@ -1,9 +1,10 @@
 import React from "react";
+import EditTask from "./EditTask";
 import "../styles/toDo.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-
+import { v4 as uuidv4 } from 'uuid';
 
 export default function ToDoList({list, setList}){
 
@@ -50,8 +51,37 @@ export default function ToDoList({list, setList}){
         console.log('what is filtered: ', list)
     }
 
-    const editButton = (event) => {
+    const editButton = (id, toDo) => {
         console.log('here is the edit button')
+        setList(editList => {
+            return editList.map(ele => 
+                ele.id === id?  {
+                    ...ele,
+                    toDo,
+                    isEditing: !ele.isEditing
+                } : ele
+            )
+        })
+    }
+    const editTaskButton = (newValue, id) => {
+        console.log('here is toDos: ', newValue)
+        console.log('here is id: ', id)
+        setList(currentList =>{
+            return currentList.map(ele =>
+                ele.id === id? {
+                    ...ele,
+                    toDo: newValue,
+                    isEditing: !ele.isEditing
+                } : ele
+            )
+        })
+        // .map(ele => 
+        //     ele.id === id? {
+        //         ...ele,
+        //         toDos,
+        //         isEditing: !toDos.isEditing
+        //     } : ele
+        // ))
     }
     return(
         <>
@@ -59,8 +89,14 @@ export default function ToDoList({list, setList}){
             <ol>
             {
                 list.map((ele, i) => {
-                    return(
-                        // key = {i + 1}
+                return ele.isEditing? (
+                        <EditTask key = {ele.id}
+                            editTaskButton ={editTaskButton}
+                            editTask={ele}
+                        />
+                    ):(
+                        <>
+                        {/* // key = {i + 1} */}
                         <li key= {ele.id}
                           className="listStyles"  
                         >
@@ -75,7 +111,7 @@ export default function ToDoList({list, setList}){
                             <p className={ele.completed? "completedTask" : "pendingTask"}>{ele.toDo}</p>
                             <FontAwesomeIcon 
                                 icon={faPenToSquare}
-                                onClick={editButton}
+                                onClick={() => editButton(ele.id, ele.toDo)}
                                 />
                             <FontAwesomeIcon 
                                 icon={faTrash}
@@ -83,6 +119,7 @@ export default function ToDoList({list, setList}){
                                 />
                             {/* <button onClick={() => {return clickButton(i + 1)}}>Edit</button> */}
                         </li>
+                        </>
                     )
                 })
             }
