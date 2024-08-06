@@ -39,7 +39,7 @@ export default function InputForm({setList, setTask, task, list}){
 
     return (
         <>
-            <h2>'What are your plans for today?'</h2>
+            <h2>What are your plans for today?</h2>
             <div>
                 <form>
                     <input 
