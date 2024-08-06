@@ -66,7 +66,7 @@ export default function InputForm({setList, setTask, task, list}){
                         onChange={handleChange}
                         type="text"
                         value={task}
-                        placeholder="What is your task for today?"
+                        placeholder="Write your plans here"
                     />
                     <button 
                         onClick={submitButton}
