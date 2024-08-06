@@ -9,8 +9,8 @@ router.get('/', async(req, res) => {
 
     try {
         const allTasks = await prisma.post.findMany()
-
-        // const sortTracks = allTasks.sort((a,b) => a.id - b.id)
+        if(allTasks){
+                    // const sortTracks = allTasks.sort((a,b) => a.id - b.id)
         // let newID = 1;
         // allTasks.forEach(async(ele, i) => {
         //     if(ele.id !== newID){
@@ -32,10 +32,24 @@ router.get('/', async(req, res) => {
         
         // res.json("Here is the current table of data: ", allTasks)
         res.status(200).json(allTasks)      
+        }else{
+            res.send('the postgres db is not connected b/c you have to connect to the vercel postgres db')
+            
+        }
     } catch (error) {
         console.error('Here is the error: ', error)
     }
 
+})
+
+router.get('/test', (req,res) => {
+
+    try {
+        res.send('this is to test the server')
+    } catch (error) {
+        console.log('Here is the error: ', error)
+    }
+    
 })
 
 router.get('/tasks/:client_id', async(req, res) => {
