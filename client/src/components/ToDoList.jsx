@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
 
 export default function ToDoList({list, setList, currentData}){
-    const remote_server_link = import.meta.env.VERCEL_SERVER_LINK
+    const remote_server_link = import.meta.env.VITE_SERVER_LINK
 
     const clickButton = (id, completedTask) => {
         console.log(`button clicked, and id ${id}`)

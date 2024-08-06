@@ -5,7 +5,10 @@ import axios from "axios";
 
 
 export default function InputForm({setList, setTask, task, list}){
-    const remote_server_link = import.meta.env.VERCEL_SERVER_LINK
+    const remote_server_link = import.meta.env.VITE_SERVER_LINK
+    // const other_remote_server_link = 
+
+
     // inputText = 
     // const [text, setText] = useState('')
     const submitButton = async(event) => {
@@ -36,7 +39,6 @@ export default function InputForm({setList, setTask, task, list}){
                 client_id: newClientId
               }
               console.log('here is teh newTodo: ', newTodo)
-            //   const result = await createTodo(newTodo)
               const res = await axios.post(remote_server_link, newTodo, {
                 headers:{
                     'Content-Type': 'application/json'
