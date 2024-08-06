@@ -23,7 +23,7 @@ export default function InputForm({setList, setTask, task, list}){
                 completed: false,
                 isEditing: false
             }])
-            console.log('here is the list: ', list.client_id)
+            // console.log('here is the list: ', list.client_id)
             // this is where I would make a post request to the server
             // to ensure the data is being passed through
             // I should pass it as a json file, and I think I will
@@ -55,7 +55,7 @@ export default function InputForm({setList, setTask, task, list}){
         setTask(event.target.value)
         // console.log(text)
     }
-    console.log('here is the updated value: ', task)
+    // console.log('here is the updated value: ', task)
 
     return (
         <>
