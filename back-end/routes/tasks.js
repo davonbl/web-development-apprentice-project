@@ -6,40 +6,42 @@ const prisma = new PrismaClient()
 
 
 router.get('/', async(req, res) => {
+    res.send('the postgres db is not connected b/c you have to connect to the vercel postgres db')
+    // let task = null
+    // try {
+    //     const allTasks = await prisma.post.findMany()
 
-    try {
-        const allTasks = await prisma.post.findMany()
-        if(allTasks){
-                    // const sortTracks = allTasks.sort((a,b) => a.id - b.id)
-        // let newID = 1;
-        // allTasks.forEach(async(ele, i) => {
-        //     if(ele.id !== newID){
-        //         console.log('HELLO WORLD')
-        //         // ele.id = newID
-        //         const updateList = await prisma.post.update({
-        //             where: {
-        //               id: ele.id,
-        //             },
-        //             data: {
-        //               id: newID,
-        //             }
-        //           })  
-        //     }
-        //         newID++
-        //     console.log('here is the newID: ', newID)
-        // }) 
-        console.log('current table of data: ', allTasks)
+    //     if(task){
+    //                 // const sortTracks = allTasks.sort((a,b) => a.id - b.id)
+    //     // let newID = 1;
+    //     // allTasks.forEach(async(ele, i) => {
+    //     //     if(ele.id !== newID){
+    //     //         console.log('HELLO WORLD')
+    //     //         // ele.id = newID
+    //     //         const updateList = await prisma.post.update({
+    //     //             where: {
+    //     //               id: ele.id,
+    //     //             },
+    //     //             data: {
+    //     //               id: newID,
+    //     //             }
+    //     //           })  
+    //     //     }
+    //     //         newID++
+    //     //     console.log('here is the newID: ', newID)
+    //     // }) 
+    //     console.log('current table of data: ', allTasks)
         
-        // res.json("Here is the current table of data: ", allTasks)
-        res.status(200).json(allTasks)      
-        }else{
-            console.log('testing')
-            res.send('the postgres db is not connected b/c you have to connect to the vercel postgres db')
+    //     // res.json("Here is the current table of data: ", allTasks)
+    //     res.status(200).json(allTasks)      
+    //     }else{
+    //         console.log('testing')
+    //         res.send('the postgres db is not connected b/c you have to connect to the vercel postgres db')
 
-        }
-    } catch (error) {
-        console.error('Here is the error: ', error)
-    }
+    //     }
+    // } catch (error) {
+    //     console.error('Here is the error: ', error)
+    // }
 
 })
 
