@@ -41,7 +41,7 @@ they want to engage in.
 
     ```
     VITE_API_KEY=TBD
-    VITE_SERVER_LINK=
+    VITE_SERVER_LINK=TBD
      ```
 4. Now you should be able to utilize this application. Cheers!
 ## Documentation
