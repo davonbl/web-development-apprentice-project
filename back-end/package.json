@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "postinstall": "prisma generate",
     "vercel-build": "prisma generate && prisma migrate deploy && vite build"
   },
   "keywords": [],
