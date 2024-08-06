@@ -98,7 +98,7 @@ export default function ToDoList({list, setList, currentData}){
     }
     return(
         <>
-            <p>To-do List</p>
+            {/* <p>To-do List</p> */}
             <ul className="orderList">
             {
                 list.map((ele, i) => {
