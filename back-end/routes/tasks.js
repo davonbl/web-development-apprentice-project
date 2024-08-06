@@ -33,7 +33,9 @@ router.get('/', async(req, res) => {
         // res.json("Here is the current table of data: ", allTasks)
         res.status(200).json(allTasks)      
         }else{
+            console.log('testing')
             res.send('the postgres db is not connected b/c you have to connect to the vercel postgres db')
+
         }
     } catch (error) {
         console.error('Here is the error: ', error)
