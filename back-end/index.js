@@ -20,3 +20,5 @@ app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT} \nClick CTRL + C to quit `)
 
 })
+
+export default app
