@@ -37,11 +37,11 @@ they want to engage in.
     npm run start
     ```
 
-4. Create a `.env` file in the client root directory. This is where your open weather api key will be placed:
+4. Create a `.env` file in the client root directory. This is where your open weather api key will be placed. In regards to the server link, you have to request that link from me:
 
     ```
     VITE_API_KEY=TBD
-
+    VITE_SERVER_LINK=
      ```
 4. Now you should be able to utilize this application. Cheers!
 ## Documentation
