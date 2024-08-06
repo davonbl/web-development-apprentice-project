@@ -47,7 +47,7 @@ export default function ToDoPage(){
   
     // hadnling data fetching with useSWR in react
   
-    console.log('here is the data', data)
+    // console.log('here is the data', data)
 
     return(
         <>
