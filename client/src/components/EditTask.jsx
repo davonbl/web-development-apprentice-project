@@ -16,8 +16,10 @@ export default function EditTask({editTask, editTaskButton, original_id, origina
         // setTask('')
     }
 
-    const handleChange = (event) => {
-        console.log(event.target.value)
+    const handleChange = (event, original_id) => {
+        // console.log('the button is clicked')
+        // console.log('here is the original_id: ', original_id)
+        // console.log(event.target.value)
         setValue(event.target.value)
         // console.log(text)
     }
@@ -28,7 +30,7 @@ export default function EditTask({editTask, editTaskButton, original_id, origina
             <div>
                 <form>
                     <input 
-                        onChange={handleChange}
+                        onChange={(event) => handleChange(event, original_id)}
                         type="text"
                         value={value}
                         placeholder="updating task"

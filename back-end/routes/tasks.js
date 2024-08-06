@@ -82,18 +82,18 @@ router.post('/', async (req, res) => {
 
 })
 
-router.put('/:client_id', async(req, res) => {
+router.put('/', async(req, res) => {
 
       try {
         // const {id, task} = req.body
         const {client_id, task, old_id} = req.body
         // const {client_id} = req.params
 
-        // console.log('params: ', client_id)
+        console.log('client_id from req.body: ', client_id)
 
         const initalTask = await prisma.post.findFirst({
             where:{
-                client_id: old_id
+                client_id: client_id
             }
         })
         console.log(initalTask)

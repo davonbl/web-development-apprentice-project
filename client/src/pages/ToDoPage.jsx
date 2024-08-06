@@ -15,8 +15,9 @@ const fetcher = async() => {
   }
 
 export default function ToDoPage(){
-    const [list, setList] = useState([])
-    const [task, setTask] = useState('')
+    const [list, setList] = useState([]);
+    const [task, setTask] = useState('');
+
   
     const { data, error, isLoading } = useSWR("http://localhost:8080", fetcher);
     
@@ -33,7 +34,7 @@ export default function ToDoPage(){
           console.log(ele.task)
           // return ele.task
           setList(preList => [...preList, {
-            client_id: uuidv4(),
+            client_id: ele.client_id,
             toDo: ele.task,
             completed: false,
             isEditing: false
@@ -58,6 +59,7 @@ export default function ToDoPage(){
             <ToDoList
                 list={list}
                 setList={setList}
+                currentData={data}
             />
         
         </>
