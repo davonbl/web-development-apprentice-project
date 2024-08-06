@@ -42,6 +42,16 @@ router.get('/', async(req, res) => {
 
 })
 
+router.get('/test', (req,res) => {
+
+    try {
+        res.send('this is to test the server')
+    } catch (error) {
+        console.log('Here is the error: ', error)
+    }
+    
+})
+
 router.get('/tasks/:client_id', async(req, res) => {
 
     try {
