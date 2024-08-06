@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
 
 export default function ToDoList({list, setList, currentData}){
+    const remote_server_link = import.meta.env.VERCEL_SERVER_LINK
 
     const clickButton = (id, completedTask) => {
         console.log(`button clicked, and id ${id}`)
@@ -35,7 +36,7 @@ export default function ToDoList({list, setList, currentData}){
             console.log('here is the list: ', list)
             // const testValue = list.filter(ele => ele.id !== id)
             const passObj = {id}
-            const res = await axios.delete('http://localhost:8080/', passObj, {
+            const res = await axios.delete(remote_server_link, passObj, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -74,7 +75,7 @@ export default function ToDoList({list, setList, currentData}){
                 old_id: inital_id
             }
             console.log('here is the UPDATED OBJ: ', updatedObj)
-            const res = await axios.put(`http://localhost:8080`, updatedObj, {
+            const res = await axios.put(remote_server_link, updatedObj, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
