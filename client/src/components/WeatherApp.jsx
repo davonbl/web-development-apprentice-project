@@ -61,7 +61,7 @@ export default function WeatherApp() {
                         <div className='weather__image--container'>
                             <img className='weather__image' alt='weather' src={`http://openweathermap.org/img/wn/${ele.weather[0].icon}.png`}/>
                         </div>
-                        <p className='weather__temperature'>Temp: {ele.main.temp}°F</p>
+                        <p className='weather__temperature'>{ele.main.temp}°F</p>
                         <p className='weather__description'>{ele.weather[0].description}</p>
                         
                     </div>
