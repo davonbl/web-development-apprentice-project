@@ -6,7 +6,7 @@ import ToDoList from '../components/ToDoList';
 import InputForm from '../components/InputForm';
 
 const fetcher = async() => {
-  const remote_server_link = import.meta.env.VERCEL_SERVER_LINK
+  const remote_server_link = import.meta.env.VITE_SERVER_LINK
     try {
     const res = await axios.get(remote_server_link)
     return res.data
@@ -19,12 +19,12 @@ export default function ToDoPage(){
     const [list, setList] = useState([]);
     const [task, setTask] = useState('');
 
-    const remote_server_link = import.meta.env.VERCEL_SERVER_LINK
+    const remote_server_link = import.meta.env.VITE_SERVER_LINK
     const { data, error, isLoading } = useSWR(remote_server_link, fetcher);
     
     useEffect(() => {
-      console.log('HELLO WORLD')
-      console.log('here is the fetched data: ', data)
+      // console.log('HELLO WORLD')
+      // console.log('here is the fetched data: ', data)
       // console.log('here are the tasks: ' , data.task)
       if(data && Array.isArray(data)){
         // let testing = data.map(ele => {
@@ -32,7 +32,7 @@ export default function ToDoPage(){
         //   return ele.task
         // })
         let testing = data.map(ele => {
-          console.log(ele.task)
+          // console.log(ele.task)
           // return ele.task
           setList(preList => [...preList, {
             client_id: ele.client_id,
