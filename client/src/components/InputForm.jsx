@@ -14,8 +14,8 @@ export default function InputForm({setList, setTask, task, list}){
     const submitButton = async(event) => {
         try {
             event.preventDefault()
-            console.log('clicked')
-            console.log('Here is the text: ', task)
+            // console.log('clicked')
+            // console.log('Here is the text: ', task)
             const newClientId = uuidv4()
             setList(preList => [...preList, {
                 client_id: newClientId,
@@ -38,7 +38,7 @@ export default function InputForm({setList, setTask, task, list}){
                 task: task,
                 client_id: newClientId
               }
-              console.log('here is teh newTodo: ', newTodo)
+            //   console.log('here is teh newTodo: ', newTodo)
               const res = await axios.post(remote_server_link, newTodo, {
                 headers:{
                     'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ export default function InputForm({setList, setTask, task, list}){
     }
 
     const handleChange = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         setTask(event.target.value)
         // console.log(text)
     }

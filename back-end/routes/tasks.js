@@ -28,7 +28,7 @@ router.get('/', async(req, res) => {
         //         newID++
         //     console.log('here is the newID: ', newID)
         // }) 
-        console.log('current table of data: ', allTasks)
+        // console.log('current table of data: ', allTasks)
         
         // res.json("Here is the current table of data: ", allTasks)
         res.status(200).json(allTasks)      
@@ -49,21 +49,21 @@ router.get('/test', (req,res) => {
     } catch (error) {
         console.log('Here is the error: ', error)
     }
-    
+
 })
 
 router.get('/tasks/:client_id', async(req, res) => {
 
     try {
         const getId = req.params.client_id
-        console.log('Here is the specific object: ', getId)
+        // console.log('Here is the specific object: ', getId)
         // const convertToNum = parseInt(getId)
         const getObject = await prisma.post.findFirst({
             where: {
                 client_id: client_id
             }
         })
-        console.log('Here is the object: ', getObject)
+        // console.log('Here is the object: ', getObject)
         res.send(getObject); 
         
     } catch (error) {

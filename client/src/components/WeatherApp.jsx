@@ -13,8 +13,8 @@ export default function WeatherApp() {
     // console.log('second part: ',days.slice(0, dayInAWeek) )
     // console.log('forecastDays: ', forecastDays)
     const fiveDayForecast = days.slice(dayInAWeek - 1, days.length - 1)
-    console.log('what is today? ', dayInAWeek)
-    console.log('fiveDayForecast: ', fiveDayForecast)
+    // console.log('what is today? ', dayInAWeek)
+    // console.log('fiveDayForecast: ', fiveDayForecast)
     const apiKey = import.meta.env.VITE_WEATHER_KEY
     const lat = 40.71427;
     const lon = 74.00597;

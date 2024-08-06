@@ -11,9 +11,9 @@ export default function ToDoList({list, setList, currentData}){
     const remote_server_link = import.meta.env.VITE_SERVER_LINK
 
     const clickButton = (id, completedTask) => {
-        console.log(`button clicked, and id ${id}`)
-        console.log('value of completed task: ', !completedTask)
-        console.log('here is the list: ', list)
+        // console.log(`button clicked, and id ${id}`)
+        // console.log('value of completed task: ', !completedTask)
+        // console.log('here is the list: ', list)
             setList((prevList) => {
                 return prevList.map((ele) => {
                     if(ele.client_id === id){
@@ -26,14 +26,14 @@ export default function ToDoList({list, setList, currentData}){
                     }
                 })
             })
-            console.log(`value of completed: ${!completedTask}`)        
+            // console.log(`value of completed: ${!completedTask}`)        
     }
 
     const deleteButton = async(id) => {
         try {
-            console.log('here is the delete button')
-            console.log('here is the id of clicked object: ', id)
-            console.log('here is the list: ', list)
+            // console.log('here is the delete button')
+            // console.log('here is the id of clicked object: ', id)
+            // console.log('here is the list: ', list)
             // const testValue = list.filter(ele => ele.id !== id)
             const passObj = {id}
             const res = await axios.delete(remote_server_link, passObj, {
@@ -44,7 +44,7 @@ export default function ToDoList({list, setList, currentData}){
             setList((currentList) => {
                 return currentList.filter(ele => ele.client_id !== id)
             })
-            console.log('what is filtered: ', list)         
+            // console.log('what is filtered: ', list)         
         } catch (error) {
             console.error(error)
         }
@@ -52,7 +52,7 @@ export default function ToDoList({list, setList, currentData}){
     }
 
     const editButton = (id, toDo) => {
-        console.log('here is the edit button')
+        // console.log('here is the edit button')
         setList(editList => {
             return editList.map(ele => 
                 ele.client_id === id?  {
@@ -74,7 +74,7 @@ export default function ToDoList({list, setList, currentData}){
                 task: newValue,
                 old_id: inital_id
             }
-            console.log('here is the UPDATED OBJ: ', updatedObj)
+            // console.log('here is the UPDATED OBJ: ', updatedObj)
             const res = await axios.put(remote_server_link, updatedObj, {
                 headers: {
                     'Content-Type': 'application/json'
@@ -102,7 +102,7 @@ export default function ToDoList({list, setList, currentData}){
             <ul className="orderList">
             {
                 list.map((ele, i) => {
-                    console.log('key: ', ele.client_id)
+                    // console.log('key: ', ele.client_id)
                 return ele.isEditing? (
                         <EditTask key = {ele.client_id}
                             editTaskButton ={editTaskButton}

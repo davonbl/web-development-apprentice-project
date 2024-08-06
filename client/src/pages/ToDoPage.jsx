@@ -23,8 +23,8 @@ export default function ToDoPage(){
     const { data, error, isLoading } = useSWR(remote_server_link, fetcher);
     
     useEffect(() => {
-      console.log('HELLO WORLD')
-      console.log('here is the fetched data: ', data)
+      // console.log('HELLO WORLD')
+      // console.log('here is the fetched data: ', data)
       // console.log('here are the tasks: ' , data.task)
       if(data && Array.isArray(data)){
         // let testing = data.map(ele => {
@@ -32,7 +32,7 @@ export default function ToDoPage(){
         //   return ele.task
         // })
         let testing = data.map(ele => {
-          console.log(ele.task)
+          // console.log(ele.task)
           // return ele.task
           setList(preList => [...preList, {
             client_id: ele.client_id,
