@@ -13,3 +13,23 @@
     text-decoration: line-through;
     cursor: pointer;
   }
+
+.listStyles{
+    background-color: #7c6e66;
+    border-radius: 11px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 40%;
+    /* text-align: center; */
+    /* margin: auto; */
+}
+
+.orderList{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    list-style: none;
+}
