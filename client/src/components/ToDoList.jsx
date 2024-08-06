@@ -7,7 +7,7 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuidv4 } from 'uuid';
 import axios from "axios";
 
-export default function ToDoList({list, setList}){
+export default function ToDoList({list, setList, currentData}){
 
     const clickButton = (id, completedTask) => {
         console.log(`button clicked, and id ${id}`)
@@ -64,20 +64,21 @@ export default function ToDoList({list, setList}){
     }
     const editTaskButton = async (newValue, id, inital_id, text) => {
         try {
-            console.log('here is toDos: ', newValue)
-            console.log('here is id: ', id)
-            console.log('the original text? ', text)
+            // console.log('here is toDos: ', newValue)
+            // console.log('here is new id: ', id)
+            // console.log('here is the inital_id: ', inital_id)
+            // console.log('the original text? ', text)
             const updatedObj = {
                 client_id: id,
                 task: newValue,
                 old_id: inital_id
             }
             console.log('here is the UPDATED OBJ: ', updatedObj)
-            // const res = await axios.put(`http://localhost:8080/`, updatedObj, {
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     }
-            // })
+            const res = await axios.put(`http://localhost:8080`, updatedObj, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
             setList(currentList =>{
                 return currentList.map(ele =>
                     ele.client_id === id? {
