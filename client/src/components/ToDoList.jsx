@@ -98,7 +98,7 @@ export default function ToDoList({list, setList, currentData}){
     return(
         <>
             <p>To-do List</p>
-            <ol>
+            <ul className="orderList">
             {
                 list.map((ele, i) => {
                     console.log('key: ', ele.client_id)
@@ -137,7 +137,7 @@ export default function ToDoList({list, setList, currentData}){
                     )
                 })
             }
-            </ol>
+            </ul>
 
         </>
     )
