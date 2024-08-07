@@ -8,7 +8,19 @@ export default function WeatherApp() {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday']
     const dayInAWeek = new Date().getDay()
 
-    const fiveDayForecast = days.slice(dayInAWeek - 1, days.length - 1)
+    const firstIndex = (dayInAWeek + 6) % 7;
+    const fiveDayForecast = 5;
+    const lastIndex = (firstIndex + fiveDayForecast) % 7;
+
+    let forecastSchedule;
+
+    if(firstIndex < lastIndex){
+        forecastSchedule = days.slice(firstIndex, lastIndex)
+    }else {
+        forecastSchedule = days.slice(firstIndex).concat(days.slice(0,fiveDayForecast))
+    }
+
+    // const fiveDayForecast = days.slice(dayInAWeek - 1, days.length - 1)
     const apiKey = import.meta.env.VITE_WEATHER_KEY
     const lat = 40.71427;
     const lon = 74.00597;
@@ -30,7 +42,7 @@ export default function WeatherApp() {
                 {foreCastWeather && foreCastWeather.splice(0,5).map((ele, idx) => {
                     return(
                     <div key={idx} className='weather__card'>
-                        <p className='weather__day'>{fiveDayForecast[idx]}</p>
+                        <p className='weather__day'>{forecastSchedule[idx]}</p>
                         <div className='weather__image--container'>
                             <img className='weather__image' alt='weather' src={`http://openweathermap.org/img/wn/${ele.weather[0].icon}.png`}/>
                         </div>
